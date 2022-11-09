@@ -1,0 +1,4 @@
+
+
+select ord_date, salesman_id, ord_no, purch_amt from orders
+order by ord_date asc
