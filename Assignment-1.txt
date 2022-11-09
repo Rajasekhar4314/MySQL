@@ -1,4 +1,79 @@
 
+## 1.Write a query to display the columns in a specific order, such as order date,
+salesman ID, order number, and purchase amount for all orders.
 
 select ord_date, salesman_id, ord_no, purch_amt from orders
 order by ord_date asc
+
+## 2. From the following table, write a SQL query to locate salespeople who live in the city
+of 'Paris'. Return salesperson's name, city.
+
+select name, city from sales 
+where city = "paris"
+
+## 3.From the following table, write a SQL query to select a range of products whose
+price is in the range Rs.200 to Rs.600. Begin and end values are included. Return
+pro_id, pro_name, pro_price, and pro_com.
+
+select * from products
+where pro_price between 200 and 600
+
+
+## 4. From the following table, write a SQL query to find the items whose prices are
+higher than or equal to $550. Order the result by product price in descending, then
+product name in ascending.
+
+select pro_name, pro_price from products
+where pro_price >= 550 
+order by pro_price desc, pro_name asc
+
+## 5. From the following table, write a SQL query to find details of all orders excluding
+those with ord_date equal to '2012-09-10' and salesman_id higher than 5005 or
+purch_amt greater than 1000.Return ord_no, purch_amt, ord_date, customer_id and
+salesman_id.
+
+select * from orders
+where ord_date != "2012-09-10" and salesman_id > 5005 or purch_amt > 1000
+
+
+## 6.1. Write a query to fetch which country has the highest population?
+
+select name, population as high_population from world
+order by population desc limit 1
+
+## 6.2. write a query to fetch the name of the country which has the least gdp?
+
+select name, gdp as least_gdp from world
+order by gdp asc limit 1
+
+## 6.3. Write a query to fetch the name of the country which ends with letter C?
+
+select name name_ends_with_C from world
+where name like "%C"
+
+## 6.4.write a query to fetch the name of the country which starts with letter D?
+
+select name name_starts_with_D from world
+where name like "D%" 
+
+## 6.5.write query to fetch which continent has highest gdp?
+
+select continent continent_with_high_gdp, gdp from world
+group by continent order by gdp desc limit 1
+
+## 6.6.Give the total GDP of Africa?
+
+select continent, sum(gdp) tot_gdp from world
+where continent = "africa"
+
+## 6.7.write a query to fetch the total population for each continent?
+
+select continent, sum(population) total_population from world
+group by continent
+
+## 6.8. For each relevant continent show the number of countries that has a population of at least 200000000?
+
+
+
+
+
